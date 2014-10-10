@@ -1,0 +1,58 @@
+
+(defun positive (x)
+	(if (null x)
+		0
+		(if (> (car x)0)
+			(+ (car x) (positive(cdr x)))
+			(positive(cdr x))
+		)
+	)
+)
+
+(defun contains (lookfor item)
+	(if (null item)
+		NIL
+		(if (equal lookfor (car item))
+			T
+			(contains lookfor (cdr item))
+		)
+	)
+)
+
+
+(defun noDuplicates (dupes)
+	(cond ((null dupes) NIL)
+		((contains (car dupes)(cdr dupes)) (noDuplicates (cdr dupes)))
+		((equal (cdr dupes) NIL) dupes)
+		(T (append (list (car dupes)) (noDuplicates(cdr dupes))))
+	)
+)
+
+
+
+
+
+
+
+(defun divEven (i j)
+	(cond ((= i 0) T)
+		((< i 0) NIL)
+		(t (divEven (+ i (* -1 j)) j))
+	)
+) 
+
+(defun factor (base numc)
+	(if (= numc 1)
+		(list '1)
+		(if (divEven base numc)
+			(append (list numc) (factor base (+ numc -1)))
+			(factor base (+ numc -1))
+		)
+	)
+)
+
+(defun factors (base)
+	(factor base (+ base -1))
+)
+
+
