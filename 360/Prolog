@@ -1,0 +1,30 @@
+Jake Hayhurst && David Baker
+1.
+
+max(X,[X]).
+max(S,[H|T]) :- max(S1,T), ((H >= S1, S is H);(H < S1, S is S1)).
+
+2. 
+
+divBy3(X,Y) :- Y > 0, findall(BLIST, between(1,Y,BLIST), LIST),include(div(3),LIST,X).
+div(N,M):- 0 is mod(M,N);0 is mod(N,M).
+
+3.
+
+isa(water,liquid).
+isa(wine,liquid).
+isa(soda,liquid).
+isa(coke,soda).
+isa(pepsi,soda).
+isa(bob,person).
+isa(alice,person).
+isa(lassie,dog).
+drinks(lassie,liquid).
+drinks(alice,soda).
+drinks(alice,water).
+drinks(bob,coke).
+
+subtype(A,B) :- isa(A,B);(B = liquid,isa(A,soda)) . 
+drinkypeople(A,B):- drinks(A,B);( B = liquid,isa(A,person)).
+drinkers(L,B):- findall( SUBT, drinkypeople(SUBT,B),L).
+allsubtypes(L,B) :- findall(SUBT, subtype(SUBT,B),L).
