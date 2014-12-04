@@ -4,6 +4,19 @@ mysqli_report(MYSQLI_REPORT_STRICT);
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
             "http://www.w3.org/TR/REC-html40/strict.dtd">
+<SCRIPT language=JavaScript>
+	function verify(form){
+		file = form.elements["datafile"];
+		if((file.value != null)&& (file.value !="")){
+			return confirm("Upload"+file.value+"?");
+		}
+		alert("Please provide a filename.");
+		return false;
+	}
+	function confirmDelete(){
+		return confirm("Are you sure you want to delete all information?");
+	}
+</SCRIPT>
 <html>
 <head>
 <title>uMovies</title>
@@ -34,14 +47,14 @@ Welcome to <em>uMovies</em>, your destination for information on <a href="movies
 			
 			
 			echo '<h3>Uploading Data File</h3>';
-			echo '<form method="post" name="uploadForm" action= "upload.php" enctype= "multipart/form-data" onsubmit="return verify(this);>';
+			echo '<form method="post" name="uploadForm" action= "upload.php" enctype= "multipart/form-data" onsubmit="return verify(this);">';
 			echo '<label for="password">Data file</label>';
 			echo '<input type="file" name="datafile" id="dataFile"/>';
 			echo '<input type="submit" value="Upload" id="submit"/>';
 			echo '<p id="out" style="display:block;clear:both;width:100%;margin:10px 0 0 0;text-align:left;color:#cd3700;"></p>';
 			echo '</form>';
 			echo '<h3>Deleting Information</h3>';
-			echo '<form method = "post" name="deleteAll" action = "delete.php" id="deleteAll"/>';
+			echo '<form method = "post" name="deleteAll" action = "delete.php" onsubmit="return confirmDelete()" id="deleteAll"/>';
 			echo '<input type="submit" value="Delete All" id="submit"/>';
 			echo '</form>';
 		}
