@@ -1,0 +1,13 @@
+Q4 - 	A) there can be 16 simultanious connections because there are 4 links and each link can support 4 simultanious connections 
+	 	B) there can be 8 simultanoious connections because now there are only 2 links and each link can support 4 simultanious connections
+	 	C) Yes we can accomedate all 8 connections, 2 lines between each pair of switches dedicated to A and C and B and D
+Q6 - 	A) M/S
+	 	B) L/R
+	 	C) M/S + L/R
+	 	D) The last bit will be on the line because of the propagation delay
+	 	E) The first bit will still be on the line because of the propagation delay is greater than the transmission time
+	 	F) Its at B because the propagation delay is shorter than the transmission
+	 	G) M = 535714.28571428571429
+Q7  - 	The time it takes to construct a packet is 6.9ms the time to send it without prop delay is .224ms the propagation delay is 10ms so it is 			17.1ms delay
+Q10 - 	(L/R1 + d1/s1) + (L/R2 + d2/s2) + (L/R3 + d3/s3) + 2dproc
+		18 + 1/25 + .006 seconds = 18.046 seconds 
